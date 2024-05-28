@@ -1,0 +1,513 @@
+*{
+    font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+scrollbar thumb:hover {
+    background-color: #ff0000; /* Color del thumb al pasar el mouse */
+}
+body{
+    margin:0;
+    padding: 0;
+}
+
+/* NAVBAR */
+nav{
+    grid-area: navbar;
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    align-items: center;
+}
+nav img{
+    padding-top: 16px;
+    padding-left: 30px;
+}
+.navbar-items ul{
+    display: flex;
+    list-style: none;
+    font-weight: bold;
+    column-gap: 30px;
+    padding-left: 10px;
+    font-size: 20px
+}
+
+.navbar-items ul li a{
+    color: #e5e5e5;
+}
+nav img{
+    height: 45px;
+}
+/* ASIDE NAVBAR */
+aside{
+    grid-area: aside;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    background-color: rgb(15, 15, 15);
+    gap: 10px;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #b3b3b3;
+}
+
+/* CARD IMAGENES */
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: main;
+    background-color: rgb(20, 20, 20);
+    column-gap: 8px;
+    row-gap: 50px;
+    justify-content: center;
+    overflow: auto;
+    padding-block: 20px;
+}
+main::-webkit-scrollbar{
+    background: rgb(20, 20, 20);
+}
+main::-webkit-scrollbar-thumb{
+    background: #333;
+    border-radius: 5px;
+}
+main h3{
+    width: 100%;
+    padding-left: 120px;
+    padding-top: 15px;
+    margin-bottom: -5px;
+    color: #e5e5e5;
+    font-size: 26px;
+    
+}
+.grid-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0 0 20px 5x;
+    transition: .3s;
+}
+.grid-item img{
+    height: 138px;
+    width: 242px;
+    border-radius: 5px;
+}
+.grid-item h3{
+    padding-top: 12px;
+    padding-left: 10px;
+    color: #e5e5e5;
+}
+.grid-item p{
+    word-break: break-all;
+    white-space: normal;
+    padding-left: 11px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    width: 200px;
+    color: #e5e5e5;
+}
+.grid-item div{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+button{
+    height: 25px;
+    width: 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 100%;
+    font-weight: 700;
+}
+button:hover{
+    background-color:#b3b3b3;
+    transition: .3s;
+    border: none;
+}
+.item-button button img{
+    width: 25px;
+    height: 25px;
+}
+
+.item-title{
+    display: none;
+}
+.item-description{
+    display: none;
+}
+.item-button{
+    display: none;
+}
+
+.grid-item:hover{
+    transform: scale(1.4);
+    z-index: 2;
+    .item-title{
+        display: unset;
+    }
+    .item-button{
+        display: unset;
+    }
+    .item-description{
+        display: unset;
+    }
+    .grid-item img{
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius:unset;
+        border-bottom-right-radius:unset;
+    }
+
+    box-shadow: 0 0 20px 10px;
+}
+
+
+
+
+
+
+/* FOOTER */
+footer{
+    grid-area: footer;
+    background-color: rgb(20, 20, 20);
+    padding: 15px;
+}
+.grid-footer{
+    color: #808080;
+    font-size: 10px;
+}
+.social-media{
+    display: flex;
+    padding-left: 20px;
+}
+i{
+    font-size: 20px;
+    padding-left: 20px;
+}
+.grid-footer h3{
+    padding-left: 41px;
+    padding-top: 12px;
+}
+    
+
+/* GRILLA CSS GRID */
+.grid-container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 9fr 1fr;
+    grid-template-areas:
+    "navbar"
+    "main"
+    "footer";
+    
+    background-color: lightgray;
+    
+}
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul h3 {
+    padding: 15px;
+    color: #b3b3b3;
+}
+.menu ul li {
+    padding: 15px;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.menu ul li a:hover {
+    color: #b3b3b3;
+}
+
+/* Media querie tamaño escritorio */
+@media (min-width: 576px) {
+    .grid-container{
+        display: grid;
+        grid-template-areas:
+            "navbar navbar"
+            "aside main"
+            "aside footer";
+        grid-template-columns: 1fr 9.5fr;
+        grid-template-rows: 1fr 10fr 1fr;
+
+    }
+    .button{
+        display: none;
+    }
+    #toggle{
+        display: none;
+    }
+    .menu{
+        flex-direction: column;
+        padding-left: 20px;
+
+    }
+    .menu ul li a {
+        text-decoration: none;
+        color: #e5e5e5;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-items ul{
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+        column-gap: 30px;
+        padding-left: 80px;
+        font-size: 20px
+    }
+    .menu ul h3 {
+        padding: 15px;
+        padding-top: 50px;
+        font-size: 26px;
+        color: #b3b3b3;
+    }
+    
+
+    /* seccion MAIN escritorio */
+
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        grid-area: main;
+        background-color: rgb(20, 20, 20);
+        column-gap: 8px;
+        justify-content: center;
+        padding-block: 20px;
+        
+    }
+    main::-webkit-scrollbar{
+        background: rgb(20, 20, 20);
+    }
+    main::-webkit-scrollbar-thumb{
+        background: #333;
+        border-radius: 5px;
+    }
+    main h3{
+        width: 100%;
+        padding-left: 120px;
+        padding-top: 15px;
+        margin-bottom: -5px;
+        color: #e5e5e5;
+        font-size: 26px;
+    }
+
+    .grid-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: rgb(20, 20, 20);
+        box-shadow: 0 0 20px 5x;
+        transition: .3s;
+    }
+
+    .grid-item img{
+        height: 138px;
+        width: 242px;
+        border-radius: 5px;
+    }
+    .grid-item h3{
+        padding-top: 12px;
+        padding-left: 10px;
+        color: #e5e5e5;
+    }
+    .grid-item p{
+        word-break: break-all;
+        white-space: normal;
+        padding-left: 11px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        font-size: 12px;
+        width: 200px;
+        color: #e5e5e5;
+    }
+    .grid-item div{
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+    button{
+        height: 25px;
+        width: 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 100%;
+        font-weight: 700;
+    }
+    button:hover{
+        background-color:#b3b3b3;
+        transition: .3s;
+        border: none;
+    }
+    .item-button button img{
+        width: 25px;
+        height: 25px;
+    }
+
+
+    
+    .item-title{
+        display: none;
+    }
+    .item-description{
+        display: none;
+    }
+    .item-button{
+        display: none;
+    }
+    
+    .grid-item:hover{
+        transform: scale(1.4);
+        z-index: 2;
+        .item-title{
+            display: unset;
+        }
+        .item-button{
+            display: unset;
+        }
+        .item-description{
+            display: unset;
+        }
+        .grid-item img{
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius:unset;
+            border-bottom-right-radius:unset;
+        }
+
+        box-shadow: 0 0 20px 10px;
+    }
+
+    .grid-footer{
+        color: #808080;
+        font-size: 10px;
+    }
+    .social-media{
+        display: flex;
+        padding-left: 20px;
+    }
+    i{
+        font-size: 20px;
+        padding-left: 20px;
+    }
+    .grid-footer h3{
+        padding-left: 41px;
+        padding-top: 12px;
+    }
+
+}
+
+/* Media querie tamaño mobile */
+@media (max-width:576px) {
+    .menu {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        width: auto; /* Ajuste para el ancho automático */
+        max-width: 80%; /* Ancho máximo para evitar ocupar toda la pantalla */
+        background-color: rgb(15, 15, 15);
+        transition: top 0.3s ease-out;
+        z-index: 0;
+        overflow-y: auto;
+        max-height: 80vh; /* Altura máxima del menú */
+    }
+    .button {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        position: fixed;
+        top: 20px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 999;
+        border-radius: px;
+    }
+    
+    .button:before,
+    .button:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .button:before {
+        top: 10px;
+    }
+    
+    .button:after {
+        bottom: 10px;
+    }
+    
+    #toggle {
+        display: none;
+    }
+    
+    #toggle:checked + .button:before {
+        transform: translateY(10px) rotate(180deg);
+    }
+    
+    #toggle:checked + .button:after {
+        transform: translateY(-10px) rotate(-180deg);
+    }
+    
+    
+    #toggle:checked ~ .menu {
+        top: 83px;
+    }
+    
+    .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .menu ul li {
+        padding: 20px;
+        border-bottom: 1px solid #555;
+    }
+    
+    .menu ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .menu ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
+    
+    .menu ul li a:hover {
+        color: #b3b3b3;
+    }
+    
+}
